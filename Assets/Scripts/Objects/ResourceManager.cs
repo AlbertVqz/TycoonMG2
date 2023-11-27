@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ResourceManager : MonoBehaviour
 {
     // Variables publicas
-    // --------------------------------- Resource text
+    public Text resourceText;
 
     // variables privadas
     private float currentResources;
@@ -15,12 +15,32 @@ public class ResourceManager : MonoBehaviour
     void Start()
     {
         currentResources = 0f;
+        UpdateUI();
     }
 
     // Funcion para agregar recursos
     public void AddResources(float _value)
     {
         currentResources += _value;
-        // ----------------------------- Update UI \(^w^)/
+        UpdateUI();
+    }
+
+    // Funcion para quitar recursos
+    public void RemoveResources(float _value)
+    {
+        currentResources -= _value;
+        UpdateUI();
+    }
+
+    // Funcion para devolver la cantidad de recursos actuales
+    public float GetCurrentResources()
+    {
+        return currentResources;
+    }
+
+    // Funcion para actualizar el UI
+    public void UpdateUI()
+    {
+        resourceText.text = "Cash: $" + currentResources;
     }
 }

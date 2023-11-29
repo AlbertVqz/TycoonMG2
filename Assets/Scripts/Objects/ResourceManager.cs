@@ -11,6 +11,22 @@ public class ResourceManager : MonoBehaviour
     // variables privadas
     private float currentResources;
 
+    // Singleton
+    public static ResourceManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        // Verificacion del singleton
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

@@ -10,7 +10,7 @@ public class ResourceDetector : MonoBehaviour
         // Si el objeto es un recurso
         if (other.gameObject.CompareTag("Resource"))
         {
-            ResourceManager.Instance.AddResources(other.gameObject.GetComponent<Resource>().value);
+            ResourceCollector.Instance.AddResources(other.gameObject.GetComponent<Resource>().value);
             Destroy(other.gameObject);
         }
     }
